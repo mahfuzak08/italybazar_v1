@@ -13,7 +13,7 @@ class OrderStatusController extends Controller
     
     public function index(Request $request)
     {
-        $data = OrderStatus::orderBy('id','DESC')->get();
+        $data = OrderStatus::orderBy('id','ASC')->get();
         return view('backEnd.orderstatus.index',compact('data'));
     }
     public function create()

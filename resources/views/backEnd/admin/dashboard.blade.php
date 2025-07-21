@@ -24,163 +24,179 @@
 
     <div class="row">
         <div class="col-md-6 col-xl-3">
-            <div class="widget-rounded-circle card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                <i class="fe-list font-22 avatar-title text-primary"></i>
+            <a href="{{url('admin/order/all')}}">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
+                                    <i class="fe-list font-22 avatar-title text-primary"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$total_order}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">ALL ORDERS</p>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$total_order}}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">ALL ORDERS</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-md-6 col-xl-3">
-            <div class="widget-rounded-circle card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                <i class="fe-clock font-22 avatar-title text-success"></i>
+            <a href="{{url('admin/order/pending')}}">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-soft-success border-success border">
+                                    <i class="fe-clock font-22 avatar-title text-success"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$today_order}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">PENDING</p>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$pending}}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">PENDING</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-md-6 col-xl-3">
-            <div class="widget-rounded-circle card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                <i class="fe-pause font-22 avatar-title text-info"></i>
+            <a href="{{url('admin/order/on-hold')}}">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-soft-info border-info border">
+                                    <i class="fe-pause font-22 avatar-title text-info"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$total_product}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">ON HOLD</p>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$on_hold}}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">ON HOLD</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-md-6 col-xl-3">
-            <div class="widget-rounded-circle card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
-                                <i class="fe-refresh-cw font-22 avatar-title text-warning"></i>
+            <a href="{{url('admin/order/processing')}}">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
+                                    <i class="fe-refresh-cw font-22 avatar-title text-warning"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$total_customer}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">PROCESSING</p>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$processing}}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">PROCESSING</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         
         <div class="col-md-6 col-xl-3">
-            <div class="widget-rounded-circle card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                <i class="fe-shopping-cart font-22 avatar-title text-info"></i>
+            <a href="#">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-soft-info border-info border">
+                                    <i class="fe-shopping-cart font-22 avatar-title text-info"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$total_order}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">STOCK OUT</p>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$out_of_stock_product}}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">STOCK OUT</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-md-6 col-xl-3">
-            <div class="widget-rounded-circle card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-secondary border-secondary border">
-                                <i class="fe-truck font-22 avatar-title text-secondary"></i>
+            <a href="{{url('admin/order/in-courier')}}">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-soft-secondary border-secondary border">
+                                    <i class="fe-truck font-22 avatar-title text-secondary"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$today_order}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">SHIPPED</p>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$in_courier}}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">SHIPPED</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-md-6 col-xl-3">
-            <div class="widget-rounded-circle card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                <i class="fe-check-circle font-22 avatar-title text-success"></i>
+            <a href="{{url('admin/order/completed')}}">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-soft-success border-success border">
+                                    <i class="fe-check-circle font-22 avatar-title text-success"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$total_product}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">DELIVERED</p>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$completed}}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">DELIVERED</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-md-6 col-xl-3">
-            <div class="widget-rounded-circle card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-danger border-danger border">
-                                <i class="fe-x-circle font-22 avatar-title text-danger"></i>
+            <a href="{{url('admin/order/canceled')}}">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-soft-danger border-danger border">
+                                    <i class="fe-x-circle font-22 avatar-title text-danger"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$total_customer}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">CANCELED</p>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$canceled}}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">CANCELED</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
    

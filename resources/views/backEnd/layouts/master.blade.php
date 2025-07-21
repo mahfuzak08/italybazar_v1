@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{asset('public/backEnd/')}}/assets/css/toastr.min.css" />
     <!-- custom css -->
     <link href="{{asset('public/backEnd/')}}/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- custom navbar & sidebar css -->
+    <link href="{{asset('public/backEnd/')}}/assets/css/custom-navbar-sidebar.css" rel="stylesheet" type="text/css" />
     <!-- Head js -->
     @yield('css')
     <script src="{{asset('public/backEnd/')}}/assets/js/head.js"></script>
@@ -155,7 +157,7 @@
 
             <a href="{{url('admin/dashboard')}}" class="logo logo-light text-center">
               <span class="logo-sm">
-                <img src="{{asset($generalsetting->white_logo)}}" alt="" height="50" width="75" style="max-width: 220px;" />
+                <img src="{{asset($generalsetting->white_logo)}}" alt="" height="50" width="75" style="max-width: 50px;" />
               </span>
               <span class="logo-lg">
                 <img src="{{asset($generalsetting->white_logo)}}" alt="" height="50"  style="max-width: 220px;" />

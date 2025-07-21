@@ -23,16 +23,22 @@ class DashboardController extends Controller
     public function dashboard(){
         $total_order = Order::count();
         $today_order = Order::where('created_at', '>=', Carbon::today())->count();
-        $total_product = Product::count();
+        // $total_product = Product::count();
+        $out_of_stock_product = Product::where('stock', '<', 1)->count();
         $total_customer = Customer::count();
         $latest_order = Order::latest()->limit(5)->with('customer','product','product.image')->get();
         $latest_customer = Customer::latest()->limit(5)->get();
-        $today_delivery = Order::where(['order_status'=>'5'])->where('created_at', '>=', Carbon::today())->count();
-        $total_delivery = Order::where(['order_status'=>'5'])->count();
-        $last_week = Order::where(['order_status'=>'5'])->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+        $pending = Order::where(['order_status'=>'1'])->count();
+        $processing = Order::where(['order_status'=>'2'])->count();
+        $shipped = Order::where(['order_status'=>'3'])->count();
+        $on_hold = Order::where(['order_status'=>'4'])->count();
+        $in_courier = Order::where(['order_status'=>'5'])->count();
+        $completed = Order::where(['order_status'=>'6'])->count();
+        $canceled = Order::where(['order_status'=>'7'])->count();
+        // $last_week = Order::where(['order_status'=>'5'])->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
         $last_month = Order::where(['order_status'=>'5'])->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->count();
         $monthly_sale = Order::select(DB::raw('DATE(created_at) as date','created_at'))->selectRaw("SUM(amount) as amount")->where(['order_status'=>'5'])->groupBy('date')->limit(30)->get();
-        return view('backEnd.admin.dashboard',compact('total_order','today_order','total_product','total_customer','latest_order','latest_customer','today_delivery','total_delivery','last_week','last_month','monthly_sale'));
+        return view('backEnd.admin.dashboard',compact('total_order','today_order','out_of_stock_product','total_customer','latest_order','latest_customer','canceled', 'completed','in_courier','on_hold','shipped','processing','pending','last_month','monthly_sale'));
     }
     public function changepassword(){
         return view('backEnd.admin.changepassword');

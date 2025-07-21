@@ -1,0 +1,65 @@
+/* --- Custom Modern Navbar and Sidebar Styles --- */
+.navbar-custom {
+  background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+  box-shadow: 0 4px 16px 0 rgba(30,60,114,0.10);
+  border-bottom: 2px solid #2a5298;
+}
+.navbar-custom .topnav-menu > li > a,
+.navbar-custom .topnav-menu .nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.navbar-custom .topnav-menu > li > a:hover,
+.navbar-custom .topnav-menu .nav-link:hover {
+  color: #ffd700 !important;
+}
+.navbar-custom .logo-box {
+  background: transparent;
+}
+
+.left-side-menu {
+  background: linear-gradient(180deg, #232526 0%, #414345 100%);
+  box-shadow: 2px 0 16px 0 rgba(35,37,38,0.10);
+  border-right: 2px solid #2a5298;
+}
+.left-side-menu .user-box {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  margin: 16px 8px 24px 8px;
+  padding: 16px 0 8px 0;
+  box-shadow: 0 2px 8px 0 rgba(30,60,114,0.08);
+}
+.left-side-menu #sidebar-menu > ul > li > a {
+  color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 4px 8px;
+  padding: 10px 18px;
+  transition: background 0.2s, color 0.2s;
+}
+.left-side-menu #sidebar-menu > ul > li > a:hover,
+.left-side-menu #sidebar-menu > ul > li > a.mm-active {
+  background: #2a5298;
+  color: #ffd700;
+}
+.left-side-menu #sidebar-menu .menu-title {
+  color: #ffd700;
+  font-weight: 700;
+  margin: 16px 0 8px 16px;
+  letter-spacing: 1px;
+}
+.left-side-menu .nav-second-level li a {
+  color: #b0b3b8;
+  border-radius: 6px;
+  margin: 2px 12px;
+  padding: 8px 16px;
+  transition: background 0.2s, color 0.2s;
+}
+.left-side-menu .nav-second-level li a:hover,
+.left-side-menu .nav-second-level li.active > a {
+  background: #232526;
+  color: #ffd700;
+}
+/* --- End Custom Styles --- */

@@ -51,8 +51,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                    <i class="fe-clock font-22 avatar-title text-success"></i>
+                                <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
+                                    <i class="fe-clock font-22 avatar-title text-warning"></i>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -73,8 +73,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                    <i class="fe-pause font-22 avatar-title text-info"></i>
+                                <div class="avatar-lg rounded-circle bg-soft-secondary border-secondary border">
+                                    <i class="fe-pause font-22 avatar-title text-secondary"></i>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -95,8 +95,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
-                                    <i class="fe-refresh-cw font-22 avatar-title text-warning"></i>
+                                <div class="avatar-lg rounded-circle bg-soft-info border-info border">
+                                    <i class="fe-refresh-cw font-22 avatar-title text-info"></i>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -117,8 +117,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                    <i class="fe-shopping-cart font-22 avatar-title text-info"></i>
+                                <div class="avatar-lg rounded-circle bg-soft-dark border-dark border">
+                                    <i class="fe-shopping-cart font-22 avatar-title text-dark"></i>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -139,8 +139,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-soft-secondary border-secondary border">
-                                    <i class="fe-truck font-22 avatar-title text-secondary"></i>
+                                <div class="avatar-lg rounded-circle bg-soft-success border-success border">
+                                    <i class="fe-truck font-22 avatar-title text-success"></i>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -161,8 +161,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                    <i class="fe-check-circle font-22 avatar-title text-success"></i>
+                                <div class="avatar-lg rounded-circle" style="background-color: #46eebcb0; border: 2px solid #20c997;">
+                                    <i class="fe-check-circle font-22 avatar-title text-dark"></i>
                                 </div>
                             </div>
                             <div class="col-6">

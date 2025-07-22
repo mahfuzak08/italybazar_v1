@@ -14,7 +14,7 @@
                 <div class="page-title-right">
                     <a href="{{route('pixels.index')}}" class="btn btn-primary rounded-pill">Manage</a>
                 </div>
-                <h4 class="page-title">Pixels Create</h4>
+                <h4 class="page-title">Facebook Pixels Create</h4>
             </div>
         </div>
     </div>       
@@ -27,9 +27,31 @@
                     @csrf
                     <div class="col-sm-12">
                         <div class="form-group mb-3">
-                            <label for="code" class="form-label">Pixels ID *</label>
-                            <input type="text" class="form-control @error('code') is-invalid @enderror" name="code" value="{{ old('code') }}" id="code" required="">
+                            <label for="code" class="form-label">Add Facebook Pixel Code *</label>
+                            <textarea class="form-control @error('code') is-invalid @enderror" rows="10" name="code" id="code" required="">{{ old('code') }}</textarea>
                             @error('code')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group mb-3">
+                            <label for="pixel_id" class="form-label">Pixels ID *</label>
+                            <input type="text" class="form-control @error('pixel_id') is-invalid @enderror" name="pixel_id" value="{{ old('pixel_id') }}" id="pixel_id" required="">
+                            @error('pixel_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group mb-3">
+                            <label for="access_token" class="form-label">Access Token</label>
+                            <input type="text" class="form-control @error('access_token') is-invalid @enderror" name="access_token" value="{{ old('access_token') }}" id="access_token">
+                            @error('access_token')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

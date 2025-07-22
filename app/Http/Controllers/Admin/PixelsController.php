@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\EcomPixel;
+use App\Models\EcomDomainVerify;
 use Toastr;
 class PixelsController extends Controller
 {
@@ -21,10 +22,11 @@ class PixelsController extends Controller
     {
         $this->validate($request, [
             'code' => 'required',
+            'pixel_id' => 'required',
             'status' => 'required',
         ]);
         $input = $request->all();
-       EcomPixel::create($input);
+        EcomPixel::create($input);
         Toastr::success('Success','Data insert successfully');
         return redirect()->route('pixels.index');
     }
@@ -39,6 +41,7 @@ class PixelsController extends Controller
     {
         $this->validate($request, [
             'code' => 'required',
+            'pixel_id' => 'required',
         ]);
         $update_data =EcomPixel::find($request->id);
         $input = $request->all();
@@ -71,5 +74,24 @@ class PixelsController extends Controller
         $delete_data->delete();
         Toastr::success('Success','Data delete successfully');
         return redirect()->back();
+    }
+    public function domain_verify()
+    {
+        $edit_data =EcomDomainVerify::where('authorizer', 'facebook-domain-verification')->first();
+        return view('backEnd.pixels.domain_verify',compact('edit_data'));
+    }
+    
+    public function domain_verify_save(Request $request)
+    {
+        $this->validate($request, [
+            'authorizer' => 'required',
+            'content' => 'required',
+        ]);
+        $update_data =EcomDomainVerify::where('authorizer', 'facebook-domain-verification')->first();
+        $input = $request->all();
+        $update_data->update($input);
+
+        Toastr::success('Success','Data update successfully');
+        return redirect()->route('pixels.index');
     }
 }

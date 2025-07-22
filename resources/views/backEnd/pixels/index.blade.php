@@ -15,9 +15,10 @@
         <div class="col-12">
             <div class="page-title-box">
                 <div class="page-title-right">
-                    <a href="{{route('pixels.create')}}" class="btn btn-primary rounded-pill">Create</a>
+                    <a href="{{route('pixels.domain_verify')}}" class="btn btn-primary rounded-pill">Domain verify</a>
+                    <a href="{{route('pixels.create')}}" class="btn btn-primary rounded-pill">Create Pixel</a>
                 </div>
-                <h4 class="page-title">Pixels Manage</h4>
+                <h4 class="page-title">Facebook Pixels Manage</h4>
             </div>
         </div>
     </div>       
@@ -41,7 +42,7 @@
                         @foreach($data as $key=>$value)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$value->code}}</td>
+                            <td>{{$value->pixel_id}}</td>
                             <td>@if($value->status==1)<span class="badge bg-soft-success text-success">Active</span> @else <span class="badge bg-soft-danger text-danger">Inactive</span> @endif</td>
                             <td>
                                 <div class="button-list">

@@ -246,7 +246,9 @@ Route::group(['namespace'=>'Admin','middleware' => ['auth','lock','check_refer']
     Route::post('pixels/inactive', [PixelsController::class,'inactive'])->name('pixels.inactive');
     Route::post('pixels/active', [PixelsController::class,'active'])->name('pixels.active');
     Route::post('pixels/destroy', [PixelsController::class,'destroy'])->name('pixels.destroy');
-    
+    Route::get('pixels/domain_verify', [PixelsController::class,'domain_verify'])->name('pixels.domain_verify');
+    Route::post('pixels/domain_verify_save', [PixelsController::class,'domain_verify_save'])->name('pixels.domain_verify_save');
+
      // tag manager
     Route::get('tag-manager/manage', [TagManagerController::class,'index'])->name('tagmanagers.index');
     Route::get('tag-manager/{id}/show', [TagManagerController::class,'show'])->name('tagmanagers.show');

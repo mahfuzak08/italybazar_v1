@@ -11,6 +11,7 @@ use App\Models\Contact;
 use App\Models\CreatePage;
 use App\Models\OrderStatus;
 use App\Models\EcomPixel;
+use App\Models\EcomDomainVerify;
 use App\Models\GoogleTagManager;
 use App\Models\Order;
 use App\Models\PaymentGateway;
@@ -87,5 +88,8 @@ class AppServiceProvider extends ServiceProvider
         
         $gtm_code = GoogleTagManager::where('status',1)->get();
         view()->share('gtm_code',$gtm_code);
+
+        $domain_verify = EcomDomainVerify::get();
+        view()->share('domain_verify',$domain_verify);
     }
 }

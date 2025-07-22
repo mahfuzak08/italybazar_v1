@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ecom_pixels', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('code');
-            $table->string('pixel_id');
-            $table->string('access_token');
-            $table->tinyInteger('status');
+        Schema::create('ecom_domain_verifies', function (Blueprint $table) {
+            $table->id();
+            $table->string('authorizer');
+            $table->string('content');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ecom_pixels');
+        Schema::dropIfExists('ecom_domain_verifies');
     }
 };

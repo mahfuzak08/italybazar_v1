@@ -40,10 +40,12 @@
             }
         </style>
 
-        <meta name="facebook-domain-verification" content="38f1w8335btoklo88dyfl63ba3st2e" />
+        @foreach($domain_verify as $verify)
+        <meta name="{{ $verify->authorizer }}" content="{{ $verify->content }}" />
+        @endforeach
 
         @foreach($pixels as $pixel)
-        <!-- Facebook Pixel Code -->
+        <!-- Facebook Pixel Code (Browser) -->
         <script>
             !(function (f, b, e, v, n, t, s) {
                 if (f.fbq) return;
@@ -61,13 +63,33 @@
                 s = b.getElementsByTagName(e)[0];
                 s.parentNode.insertBefore(t, s);
             })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-            fbq("init", "{{$pixel->code}}");
+            fbq("init", "{{$pixel->pixel_id}}");
             fbq("track", "PageView");
         </script>
         <noscript>
-            <img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id={{{$pixel->code}}}&ev=PageView&noscript=1" />
+            <img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id={{{$pixel->pixel_id}}}&ev=PageView&noscript=1" />
         </noscript>
-        <!-- End Facebook Pixel Code -->
+        <!-- End Facebook Pixel Code (Browser) -->
+
+        <!-- Facebook Conversions API (Server-Side) -->
+        <script>
+        // Send PageView event to your backend for CAPI
+        fetch("{{ url('/fb-capi') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({
+                pixel_id: "{{$pixel->pixel_id}}",
+                access_token: "{{$pixel->access_token}}",
+                event_name: "PageView",
+                event_source_url: window.location.href,
+                user_agent: navigator.userAgent
+            })
+        });
+        </script>
+        <!-- End Facebook Conversions API (Server-Side) -->
         @endforeach
         
         @foreach($gtm_code as $gtm)

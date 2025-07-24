@@ -45,51 +45,54 @@
         @endforeach
 
         @foreach($pixels as $pixel)
-        <!-- Facebook Pixel Code (Browser) -->
-        <script>
-            !(function (f, b, e, v, n, t, s) {
-                if (f.fbq) return;
-                n = f.fbq = function () {
-                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-                };
-                if (!f._fbq) f._fbq = n;
-                n.push = n;
-                n.loaded = !0;
-                n.version = "2.0";
-                n.queue = [];
-                t = b.createElement(e);
-                t.async = !0;
-                t.src = v;
-                s = b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t, s);
-            })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-            fbq("init", "{{$pixel->pixel_id}}");
-            fbq("track", "PageView");
-        </script>
-        <noscript>
-            <img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id={{{$pixel->pixel_id}}}&ev=PageView&noscript=1" />
-        </noscript>
-        <!-- End Facebook Pixel Code (Browser) -->
-
-        <!-- Facebook Conversions API (Server-Side) -->
-        <script>
-        // Send PageView event to your backend for CAPI
-        fetch("{{ url('/fb-capi') }}", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify({
-                pixel_id: "{{$pixel->pixel_id}}",
-                access_token: "{{$pixel->access_token}}",
-                event_name: "PageView",
-                event_source_url: window.location.href,
-                user_agent: navigator.userAgent
-            })
-        });
-        </script>
-        <!-- End Facebook Conversions API (Server-Side) -->
+            <!-- Facebook Pixel Code (Browser) -->
+            @if($pixel->pixel_id)
+            <script>
+                !(function (f, b, e, v, n, t, s) {
+                    if (f.fbq) return;
+                    n = f.fbq = function () {
+                        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+                    };
+                    if (!f._fbq) f._fbq = n;
+                    n.push = n;
+                    n.loaded = !0;
+                    n.version = "2.0";
+                    n.queue = [];
+                    t = b.createElement(e);
+                    t.async = !0;
+                    t.src = v;
+                    s = b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t, s);
+                })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+                fbq("init", "{{$pixel->pixel_id}}");
+                fbq("track", "PageView");
+            </script>
+            <noscript>
+                <img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id={{{$pixel->pixel_id}}}&ev=PageView&noscript=1" />
+            </noscript>
+            @endif
+            <!-- End Facebook Pixel Code (Browser) -->
+            @if($pixel->access_token)
+            <!-- Facebook Conversions API (Server-Side) -->
+            <script>
+            // Send PageView event to your backend for CAPI
+            fetch("{{ url('/fb-capi') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({
+                    pixel_id: "{{$pixel->pixel_id}}",
+                    access_token: "{{$pixel->access_token}}",
+                    event_name: "PageView",
+                    event_source_url: window.location.href,
+                    user_agent: navigator.userAgent
+                })
+            });
+            </script>
+            <!-- End Facebook Conversions API (Server-Side) -->
+            @endif
         @endforeach
         
         @foreach($gtm_code as $gtm)

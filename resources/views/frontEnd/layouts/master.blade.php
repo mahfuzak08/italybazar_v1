@@ -167,9 +167,10 @@
                     </div>
                     <div class="menu-bag">
                         <p class="margin-shopping">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="mobilecart-qty">{{Cart::instance('shopping')->count()}}</span>
-                        </p>
+                            <a href="{{route('customer.checkout')}}">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="mobilecart-qty">{{Cart::instance('shopping')->count()}}</span>
+                            </a>
                     </div>
                 </div>
             </div>

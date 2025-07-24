@@ -16,8 +16,7 @@
   <div class="col-12">
    <div class="page-title-box">
     <div class="page-title-right">
-     <form method="post" action="{{route('admin.order.cart_clear')}}" class="d-inline">
-      @csrf
+     <form method="get" action="{{route('admin.order.cart_clear')}}" class="d-inline">
       <button type="submit" class="btn btn-danger rounded-pill delete-confirm" title="Delete"><i class="fas fa-trash-alt"></i> Cart Clear</button>
      </form>
     </div>

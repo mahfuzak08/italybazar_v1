@@ -31,7 +31,7 @@
                             @endif
                             <li class=""><a data-bs-toggle="modal" data-bs-target="#pathao" class="btn rounded-pill btn-info"><i class="fe-truck"></i> pathao</a></li>
                            
-						</ul>
+            </ul>
                     </div>
                     <div class="col-sm-4">
                         <form class="custom_form">
@@ -83,7 +83,13 @@
                             <td>{{$value->shipping?$value->shipping->phone:''}}</td>
                             <td>{{$value->user?$value->user->name:''}}</td>
                             <td>৳{{$value->amount}}</td>
-                            <td>{{$value->status?$value->status->name:''}}</td>
+                            <td>
+                                <select class="form-select order-status-select" data-order-id="{{$value->id}}">
+                                    @foreach($orderstatus as $status)
+                                        <option value="{{$status->id}}" @if($value->order_status == $status->id) selected @endif>{{$status->name}}</option>
+                                    @endforeach
+                                </select>
+                            </td>
                             
                         </tr>
                         @endforeach
@@ -238,6 +244,28 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function(){
+    // Inline order status change
+    $(document).on('change', '.order-status-select', function() {
+        var order_id = $(this).data('order-id');
+        var order_status = $(this).val();
+        var url = "{{ route('admin.order.status') }}";
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: {order_status: order_status, order_ids: [order_id]},
+            success: function(res) {
+                if(res.status == 'success') {
+                    toastr.success(res.message);
+                    window.location.reload();
+                } else {
+                    toastr.error('Failed to update status');
+                }
+            },
+            error: function() {
+                toastr.error('Failed to update status');
+            }
+        });
+    });
     $(".checkall").on('change',function(){
       $(".checkbox").prop('checked',$(this).is(":checked"));
     });

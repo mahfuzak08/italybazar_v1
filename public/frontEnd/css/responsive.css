@@ -35,7 +35,7 @@
     position: inherit;
 }
     .product_sliders {
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
     grid-gap: 10px;
 }
     .cat_img a {
@@ -46,12 +46,12 @@
     height: 100%;
 }
     .cat_img {
-    height: 75px;
+    /* height: 75px; */
     text-align: center;
 }
 
     .topcategory {
-     grid-template-columns: repeat(3,1fr);
+     grid-template-columns: repeat(2,1fr);
    }
     .payment-method-wrappers {
         grid-template-columns: repeat(2, 1fr);
@@ -469,7 +469,7 @@ header .toggle {
         width: 200px;
     }
 	.main_product_inner {
-	    grid-template-columns: repeat(3,1fr);
+	    grid-template-columns: repeat(2,1fr);
 	}
 	.qty-cart {
 		grid-template-columns: 130px auto;
@@ -750,6 +750,10 @@ header .toggle {
 @media only screen and (min-width:767px) and (max-width:991px) {
 .menu-product{
 	display: none;
+}
+.product_sliders {
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
 }
 
 }
